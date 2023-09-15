@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html id='html' onmousedown="mouseDown()" onmouseup="mouseUp()" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAN XINGTU</title>
+    <link rel="stylesheet" href="font/font1.css">
+    <link rel="stylesheet" href="font/font2.css">
+    <link rel="stylesheet" href="css/noidung.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossOrigin="anonymous" />
+</head>
+<audio id="emthich" src="mp3/gainhat.mp3"></audio>
+<audio id='bommp3'>
+    <source src="mp3/bommp3.mp3">
+</audio>
+
+<body id="body" ondragstart="window.event.returnValue=false" oncontextmenu="window.event.returnValue=false" onselectstart="event.returnValue=false">
+    <style>
+        #content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+        
+        #btn-prev,
+        #btn-next {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            position: fixed;
+            z-index: 1;
+        }
+        
+        #btn-prev {
+            top: 50%;
+            left: 0;
+            transform: translate(0, -50%);
+        }
+        
+        #btn-next {
+            top: 50%;
+            right: 0;
+            transform: translate(0, -50%);
+        }
+        
+        #image-content {
+            width: auto;
+            margin: auto;
+        }
+        
+        img:hover {
+            transform: scale(1);
+        }
+    </style>
+    <!-- phần trên -->
+    <div class="head">
+        <!-- các menu -->
+        <div class="logo">
+            <a href="index.html"><img src="images/logocovietnam.jpg" alt="logo"></a>
+        </div>
+        <div class="link">
+            <ol>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="gioithieu.html">MEMBER</a></li>
+                    <li><a href="noidung.html" style="color:#88fdab;">CONTENT</a></li>
+                    <li><a href="gameshow.html">GAME</a></li>
+                </ul>
+            </ol>
+        </div>
+    </div>
+    <div id="noidung" class="noidung">
+        <div id="link" class="link2">
+            <ol>
+                <ul>
+                    <li><a href="noidung.html" style="color:#000000; background-color: rgb(142, 243, 243);
+                    padding: 15px; border-radius: 30px; border: solid;">Thời kỳ 1920 - 1930: Hình thành những nội dung cơ bản tư tưởng về cách mạng Việt Nam</a></li>
+                </ul>
+            </ol>
+        </div>
+    </div>
+    <div id="content">
+        <button id="btn-prev"><</button>
+        <button id="btn-next">></button>
+        <img id="image-content" src="" alt="">
+    </div>
+
+    <div id="center" class="center">
+
+        <div class="mxh">
+            <ul class="social-share">
+                <li onclick="gotofb()" id="fb" class="social-item social-item--facebook">
+                    <i class="fab fa-facebook-square"></i>
+                </li>
+                <li id="twitter" class="social-item social-item--twitter">
+                    <i class="fab fa-twitter"></i>
+                </li>
+                <li id="tele" class="social-item social-item--telegram">
+                    <i class="fab fa-telegram"></i>
+                </li>
+                <li id="linkedin" class="social-item social-item--linkedin">
+                    <i class="fab fa-linkedin"></i>
+                </li>
+                <li id="instagram" class="social-item social-item--instagram">
+                    <i class="fab fa-instagram"></i>
+                </li>
+                <li id="gg" class="social-item social-item--google">
+                    <i class="fab fa-google"></i>
+                </li>
+                <li id="yt" class="social-item social-item--youtube">
+                    <i class="fab fa-youtube"></i>
+            </ul>
+        </div>
+        <div id="chuong" class="chuongthongbao" onclick="showmess()">
+            <div id="chuongbell" class="bell-noti">
+                <i class="fa fa-bell bell-noti-icon"></i>
+                <div id="chuongstatus" class="bell-noti-status"></div>
+            </div>
+        </div>
+        <div class="time">
+            <ul class="countdown">
+                <li class="countdown-item"><span id="hour" class="countdown-number hours"></span></li>
+                <li class="countdown-item"><span id="padding" class="countdown-number padding">:</span></li>
+                <li class="countdown-item"><span id="minute" class="countdown-number minutes"></span></li>
+                <li class="countdown-item"><span id="padding" class="countdown-number padding">:</span></li>
+                <li class="countdown-item"><span id="second" class="countdown-number second"></span></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    <button onclick="topFunction()" id="scrTop" title="Go to top">▲</button>
+    <script src="js/bommouse.js"></script>
+    <script src="js/min.js"></script>
+    <script src="js/laroi.js"></script>
+    <!-- <script src="js/loadanh.js"></script> -->
+    <script src="js/time.js"></script>
+    <script src="js/scrolltop.js"></script>
+
+    <script>
+        function showmess() {
+            alert("ANH KỲ YÊU TẤT CẢ CÁC CHỊ KẾ TOÁN K12 ❤");
+        }
+
+        function gotofb() {
+            window.location.href = 'https://facebook.com/100029031824085';
+        }
+    </script>
+    <script>
+        var imageCount = 1;
+        var imageLen = 36;
+
+        document.getElementById('image-content').src = "images/content/noidung/1.png";
+        document.getElementById('btn-prev').onclick = function() {
+            if (imageCount > 1) {
+                imageCount--;
+                document.getElementById('image-content').src = "images/content/noidung/" + imageCount + ".png";
+            }
+        }
+        document.getElementById('btn-next').onclick = function() {
+            if (imageCount < imageLen - 1) {
+                imageCount++;
+                document.getElementById('image-content').src = "images/content/noidung/" + imageCount + ".png";
+            }
+        }
+    </script>
+</body>
+
+</html>
